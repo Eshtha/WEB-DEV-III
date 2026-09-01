@@ -1,20 +1,16 @@
-// function add(a,b){
-//     return a+b;
-// }
-// console.log(add(5,3));
+// const os = require('os');
+// const math = require('./math.js');
 
-// -----common js-------
-// const maths = require('./maths.js');
+// const axios=require('axios');
 
-// console.log(maths.add(5,3));
-// console.log(maths.subtract(5,3));
+// console.log(math.add(5, 3));
+// console.log(math.subtract(5, 3));
 
-// console.log("helllo world");
+// console.log("Hello World");
+import os from 'os';
+console.log(os.cpus());
 
+import {add,subtract} from './math.js';
 
-// -----es method----
-
-import {add,subtract} from './maths.js';
-
-console.log(add(5,3));
-console.log(subtract(5,3));
+console.log(add(5, 3));
+console.log(subtract(5, 3));

@@ -11,7 +11,7 @@ const users=[
 
 
 app.get("/",(req,res)=>{
-    res.send("Hello Students");
+    res.send("Hello Students");  //text or HTML
 })
 
 app.get("/about",(req,res)=>{
@@ -19,19 +19,9 @@ app.get("/about",(req,res)=>{
 })
 
 app.get("/users",(req,res)=>{
-    res.json(users);
-})
-
-app.get("/employees/:id",(req,res)=>{
-    const employeeId = parseInt(req.params.id);
-    const employee = users.find(u => u.id === employeeId);
-    if (employee) {
-        res.json(employee);
-    } else {
-        res.status(404).send("Employee not found");
-    }
+    res.json(users);   //JSON format or object type
 })
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log("Server is running on port 3000");
 });
