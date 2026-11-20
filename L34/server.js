@@ -1,11 +1,11 @@
 const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
-const informStudents = () => {
-    console.log('Bell rang, students should come in the class', );
+const informStudents = (time) => {
+    console.log(`Bell rang at ${time}, students should come in the class`, time);
 };
 
-emitter.once('messageLogged', informStudents);
+emitter.on('bell-rang', informStudents);
 
 // emitter.on('messageLogged', (arg) => {
 //     console.log('Bell rang, students should come in the class', arg);
@@ -15,7 +15,7 @@ emitter.once('messageLogged', informStudents);
 //     console.log('Bell rang, teacher can start the class', arg);
 // });
 
-emitter.emit('messageLogged');
-emitter.emit('messageLogged');
+emitter.emit('bell-rang', "10:00 AM");
+emitter.emit('bell-rang', "11:00 AM");
 // emitter.off('messageLogged', informStudents);
-emitter.emit('messageLogged');
+emitter.emit('bell-rang', "12:00 AM");
