@@ -27,13 +27,14 @@
             listItem.textContent = message;
             chatContainer.appendChild(listItem);
         };
-        const sendMessage = () => {
-            const message = userInput.value;
-            if (message) {
+        const sendMessage=function(){
+            const message=userInput.value;
+            if(message){
                 ws.send(message);
-                userInput.value = '';
+                userInput.value='';
             }
         };
+
     </script>
 </body>
 
