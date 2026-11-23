@@ -1,4 +1,5 @@
 const WebSocket = require('ws');
+
 const wsServer = new WebSocket.Server({ port: 8080 });
 
 wsServer.on('connection', (socket) => {
@@ -6,7 +7,10 @@ wsServer.on('connection', (socket) => {
 
     socket.on('message', (message) => {
         console.log(`Received message: ${message}`);
-        socket.send(`Server received: ${message}`); 
+        // socket.send(`Server received: ${message}`); 
+        wsServer.clients.forEach((client) => {
+            client.send(`Message: ${message}`);
+        });
     });
     socket.on('close', () => {
         console.log('Client disconnected');
